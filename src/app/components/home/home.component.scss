@@ -1,0 +1,31 @@
+@import "../../stylings/variables";
+
+.container {
+    width: 73%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 30px 0;
+}
+
+.typewriter-container {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.typewriter {
+    position: relative;
+    font-size: 30px;
+    font-weight: 900;
+    color: #2c3e50;
+    font-family: $primary-font;
+    z-index: 10;
+}
+
+.typewriter-bg {
+    position: absolute;
+    bottom: 0;
+    height: 10px;
+    width: 100%;
+    background-color: rgba(250, 174, 49, .7);
+    z-index: 2;
+}

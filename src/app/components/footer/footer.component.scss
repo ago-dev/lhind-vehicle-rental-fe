@@ -1,0 +1,48 @@
+@import "../../stylings/variables";
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	width: 80%;
+	margin: 0 auto;
+	font-family: $primary-font, sans-serif;
+	text-align: center;
+	
+	.row {
+		display: flex;
+		align-items: center;
+		color: gray;
+		font-size: 0.8em;
+		
+		a {
+			text-decoration: none;
+			color: gray;
+			transition: 0.5s;
+			&:hover {
+				color: rgb(165, 161, 161);
+			}
+			i {
+				font-size: 2em;
+			}
+		}
+		ul {
+			width: 100%;
+			li {
+				display: inline-block;
+				margin: 0 18px;
+			}
+		}
+	}
+}
+
+
+.footer-logo {
+	width: 100px;
+}
+
+footer {
+	width: 100%;
+	bottom: 0;
+	border-top: solid 1px rgba(87, 101, 116, .2);
+	margin-top: 40px;
+}

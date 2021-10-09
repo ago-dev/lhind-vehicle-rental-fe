@@ -1,0 +1,29 @@
+mat-nav-list {
+    padding-top: 140px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    a {
+      mat-icon {
+        margin-top: 7px;
+        font-size: 18px;
+      }
+    }
+  }
+  
+  .close-btn {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #FAAE31;
+    color: #fff;
+    border-radius: 3px;
+    padding-top: 2px;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+  

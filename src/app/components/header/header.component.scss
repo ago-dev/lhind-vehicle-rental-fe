@@ -1,0 +1,45 @@
+@import "../../stylings/variables";
+
+header {
+  padding: 20px 0;
+  box-shadow: $global-shadow;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.nav-links {
+  display: flex;
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    color: #2c3e50;
+
+    a {
+      text-decoration: none;
+      font-family: $primary-font;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  }
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.logo {
+  width: 240px;
+}
+
+.exit-icon {
+  color: #FAAE31;
+  cursor: pointer;
+}
