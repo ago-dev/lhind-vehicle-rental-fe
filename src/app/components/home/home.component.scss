@@ -1,31 +1,66 @@
 @import "../../stylings/variables";
 
 .container {
-    width: 73%;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 30px 0;
+  width: 73%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 30px 0;
 }
 
 .typewriter-container {
-    position: relative;
-    margin-bottom: 40px;
+  position: relative;
+  margin-bottom: 40px;
 }
 
 .typewriter {
-    position: relative;
-    font-size: 30px;
-    font-weight: 900;
-    color: #2c3e50;
-    font-family: $primary-font;
-    z-index: 10;
+  position: relative;
+  font-size: 30px;
+  font-weight: 900;
+  color: #2c3e50;
+  font-family: $primary-font;
+  z-index: 10;
 }
 
 .typewriter-bg {
-    position: absolute;
-    bottom: 0;
-    height: 10px;
-    width: 100%;
-    background-color: rgba(250, 174, 49, .7);
-    z-index: 2;
+  position: absolute;
+  bottom: 0;
+  height: 10px;
+  width: 100%;
+  background-color: rgba(250, 174, 49, .7);
+  z-index: 2;
+}
+
+hr {
+  width: 100%;
+  margin: 50px;
+  opacity: .2;
+}
+
+.about-section {
+  h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: $primary-color;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  h3 {
+      color: $secondary-color;
+      font-weight: 900;
+      font-size: 21px;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      mat-icon {
+          margin-right: 10px;
+      }
+  }
+
+  p {
+      font-size: 14px;
+      color: $primary-color;
+      opacity: .8;
+      line-height: 1.8;
+  }
 }

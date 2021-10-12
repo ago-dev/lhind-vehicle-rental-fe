@@ -1,0 +1,26 @@
+<h1>{{ title }}</h1>
+
+<form>
+  <mat-form-field appearance="fill" required="required">
+    <mat-label>First Name</mat-label>
+    <input matInput value='{{ userData.firstName }}' required>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput  value='{{ userData.lastName }}' required>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput  value='{{ userData.username }}'required>
+  </mat-form-field>
+  <br>
+  <mat-form-field type="email" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput  value='{{ userData.email }}' required>
+  </mat-form-field>
+  <br>
+
+  <button mat-raised-button color="primary">{{ action }}</button>
+</form>

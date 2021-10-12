@@ -1,0 +1,10 @@
+@import "../../stylings/variables";
+
+h1 {
+    font-weight: 900;
+    font-family: $primary-font;
+    color: $secondary-color;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 80px;
+}

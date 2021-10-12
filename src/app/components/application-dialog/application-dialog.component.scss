@@ -1,0 +1,26 @@
+@import "../../stylings/variables";
+
+mat-form-field {
+    width: 100%;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: $primary-color;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    font-size: 20px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+}
+
+.price {
+    font-size: 14px;
+    color: $primary-color;
+    opacity: .9;
+}

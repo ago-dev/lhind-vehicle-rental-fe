@@ -1,0 +1,31 @@
+<h1><mat-icon>schedule</mat-icon> Rent a vehicle</h1>
+
+<form>
+  <mat-form-field appearance="fill">
+    <mat-label>Select Vehicle</mat-label>
+    <mat-select>
+      <mat-option>-- None --</mat-option>
+      <mat-optgroup>
+        Group1
+        <mat-option>
+          Test
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Start date">
+      <input matEndDate placeholder="End date">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+
+  <p class="price">Price: <span>100.00</span><span>$</span></p>
+
+  <button mat-raised-button color="primary">Send Request</button>
+</form>

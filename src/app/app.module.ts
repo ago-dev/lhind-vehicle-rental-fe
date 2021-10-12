@@ -16,6 +16,25 @@ import { FooterComponent } from './components/footer/footer.component';
 import { VehicleCategoryListComponent } from './components/vehicle-category-list/vehicle-category-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './components/login/login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
+import { ApplicationDialogComponent } from './components/application-dialog/application-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ApplicationListComponent } from './components/application-list/application-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
+import { UserAddEditDialogComponent } from './components/user-add-edit-dialog/user-add-edit-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +44,14 @@ import { MatButtonModule } from '@angular/material/button';
     SideNavComponent,
     FooterComponent,
     VehicleCategoryListComponent,
+    LoginComponent,
+    VehicleListComponent,
+    ApplicationDialogComponent,
+    PageNotFoundComponent,
+    ApplicationListComponent,
+    ConfirmDialogComponent,
+    AdminDashboardComponent,
+    UserAddEditDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +63,17 @@ import { MatButtonModule } from '@angular/material/button';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],

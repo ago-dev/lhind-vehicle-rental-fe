@@ -1,0 +1,44 @@
+@import "../../stylings/variables";
+
+.container {
+  width: 80%;
+  margin: 40px auto;
+  >h1 {
+      font-weight: 900;
+      color: $primary-color;
+  }
+}
+
+.category {
+    >h2{
+        color: $secondary-color;
+        font-weight: 800;
+    }
+}
+
+mat-grid-tile {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 2px;
+    border-radius: 3px;
+    a {
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+        text-decoration: none;
+        p {
+            margin-top: 10px;
+            text-align: center;
+            color: $primary-color;
+        }
+    }
+    transition: .3s;
+    &:hover {
+        background-color: rgba(250, 174, 49, .5);
+        transition: .2s;
+    }
+}
+
+.vehicle-img {
+    width: 80px;
+    height: auto;
+}
