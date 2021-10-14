@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { ApplicationRequest } from 'src/app/core/model/res/application-request.model';
+import { RentApplicationService } from 'src/app/core/service/rent-application.service';
 import { Application } from '../application-list/application-list.component';
 
 @Component({
@@ -8,8 +10,9 @@ import { Application } from '../application-list/application-list.component';
   styleUrls: ['./pending-applications-list.component.scss']
 })
 export class PendingApplicationsListComponent implements OnInit {
+  applicationRequests!: ApplicationRequest[];
   applicationReqDataSource = new MatTableDataSource<Application>(
-    APPLICATION_REQUEST_DATA
+    this.applicationRequests
   );
   
   applicationReqColumns: string[] = [
@@ -19,24 +22,20 @@ export class PendingApplicationsListComponent implements OnInit {
     'toDate',
     'actions',
   ];
-  constructor() { }
+
+  constructor(private applicationService: RentApplicationService) { 
+
+  }
 
   ngOnInit(): void {
+    this.listPendingApplications(1, 5);
+  }
+
+  listPendingApplications(pageNo: number, pageSize: number) {
+    this.applicationService.getPendingApplications(pageNo, pageSize).subscribe((c) => {
+      this.applicationRequests = c.content;
+      this.applicationReqDataSource.data = this.applicationRequests;
+    });
   }
 
 }
-export interface ApplicationRequest {
-  name: string;
-  car: string;
-  fromDate: string;
-  toDate: string;
-}
-
-const APPLICATION_REQUEST_DATA: ApplicationRequest[] = [
-  {
-    name: 'Devis Ago',
-    car: 'VOLVO ASTRA',
-    fromDate: new Date().toDateString(),
-    toDate: new Date().toDateString(),
-  },
-];

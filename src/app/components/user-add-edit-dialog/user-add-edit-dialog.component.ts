@@ -32,10 +32,11 @@ export class UserAddEditDialogComponent implements OnInit {
     this.action = data.action;
     this.user = data.userData;
 
-    this.firstName = new FormControl('');
-    this.lastName = new FormControl('');
-    this.username = new FormControl('');
-    this.email = new FormControl('');
+    this.firstName = new FormControl(this.user ? this.user.firstName : '');
+    this.lastName = new FormControl(this.user ? this.user.lastName : '');
+    this.username = new FormControl(this.user ? this.user.username : '');
+    this.email = new FormControl(this.user ? this.user.email : '');
+    this.id = this.user.id;
   }
 
   ngOnInit(): void {
