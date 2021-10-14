@@ -1,0 +1,25 @@
+@import "../../stylings/variables";
+
+
+table {
+  width: 100%;
+}
+
+button {
+  margin: 0 2px;
+
+  mat-icon {
+    color: #fff;
+  }
+}
+
+.table-title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    button {
+        mat-icon {
+            color: $primary-color;
+          }
+    }
+}

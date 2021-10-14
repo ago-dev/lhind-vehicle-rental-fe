@@ -1,0 +1,28 @@
+@import "../../stylings/variables";
+
+.accept-btn {
+  background-color: #2ecc71;
+}
+
+.deny-btn {
+  background-color: #e74c3c;
+}
+
+.grid-container {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+table {
+  width: 100%;
+}
+
+button {
+  margin: 0 2px;
+
+  mat-icon {
+    color: #fff;
+  }
+}
+

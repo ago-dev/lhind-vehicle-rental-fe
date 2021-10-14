@@ -29,7 +29,7 @@ export class ApplicationListComponent implements OnInit {
     this.dialogRef.open(ApplicationDialogComponent);
   }
   
-  confirmDialog(): void {
+  confirmDeleteApplication(id: number): void {
     const message = `Are you sure you want to delete this application?`;
 
     const dialogData = new ConfirmDialogModel("Delete application", message);

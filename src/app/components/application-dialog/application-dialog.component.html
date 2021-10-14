@@ -1,14 +1,12 @@
 <h1><mat-icon>schedule</mat-icon> Rent a vehicle</h1>
 
-<form>
   <mat-form-field appearance="fill">
     <mat-label>Select Vehicle</mat-label>
-    <mat-select>
+    <mat-select [formControl]="vehicleControl">
       <mat-option>-- None --</mat-option>
-      <mat-optgroup>
-        Group1
-        <mat-option>
-          Test
+      <mat-optgroup *ngFor="let vehicleCategory of vehicleCategoryList" [label]="vehicleCategory.name">
+        <mat-option *ngFor="let vehicleModel of vehicleCategory.vehicleModels" [value]="vehicleModel.id">
+          {{ vehicleModel.name }}
         </mat-option>
       </mat-optgroup>
     </mat-select>
@@ -25,7 +23,6 @@
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
 
-  <p class="price">Price: <span>100.00</span><span>$</span></p>
+  <p class="price">*May your journey be free from stress and bring you home safely</p>
 
   <button mat-raised-button color="primary">Send Request</button>
-</form>

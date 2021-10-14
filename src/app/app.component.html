@@ -4,7 +4,10 @@
   </mat-sidenav>
 
   <button *ngIf="showLayout" class="sidenav-btn" mat-icon-button (click)="sideNav.toggle()">
-    <mat-icon>menu</mat-icon>
+    <mat-icon>menu</mat-icon><button *ngIf="showLayout" class="sidenav-btn" mat-icon-button (click)="sideNav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
   </button>
 
   <mat-sidenav-content>

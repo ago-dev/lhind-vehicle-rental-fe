@@ -49,35 +49,3 @@ hr {
   padding-bottom: 80px;
 }
 
-table {
-  width: 100%;
-}
-
-button {
-  margin: 0 2px;
-
-  mat-icon {
-    color: #fff;
-
-  }
-}
-
-.accept-btn {
-  background-color: #2ecc71;
-}
-
-
-.deny-btn {
-  background-color: #e74c3c;
-}
-
-.table-title {
-  margin-top: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  mat-icon {
-    color: $primary-color;
-  }
-}

@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserData } from '../admin-dashboard/admin-dashboard.component';
+import { Form, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { UserReqModel } from 'src/app/core/model/req/user-req.model';
+import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
   selector: 'app-user-add-edit-dialog',
@@ -10,26 +13,68 @@ import { UserData } from '../admin-dashboard/admin-dashboard.component';
 export class UserAddEditDialogComponent implements OnInit {
   title!: string;
   action!: string;
-  userData!: UserDataModel;
+  id!: number;
+  user!: UserReqModel;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: UserAddEditDialogModel) {
+  addEditUserForm!: FormGroup;
+  firstName!: FormControl;
+  lastName!: FormControl;
+  username!: FormControl;
+  email!: FormControl;
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: UserAddEditDialogModel,
+    private userService: UserService,
+    private router: Router,
+    public dialogRef: MatDialogRef<UserAddEditDialogComponent>
+  ) {
     this.title = data.title;
     this.action = data.action;
-    this.userData = data.userData;
+    this.user = data.userData;
+
+    this.firstName = new FormControl('');
+    this.lastName = new FormControl('');
+    this.username = new FormControl('');
+    this.email = new FormControl('');
   }
 
-  ngOnInit(): void {}
-}
+  ngOnInit(): void {
+    this.addEditUserForm = new FormGroup({
+      firstName: this.firstName,
+      lastName: this.lastName,
+      username: this.username,
+      email: this.email,
+    });
+  }
 
-export class UserDataModel {
-  constructor(
-    public firstName: string,
-    public lastName: string,
-    public username: string,
-    public email: string
-  ) {}
+  addUpdateUser() {
+    let req: UserReqModel = {
+      id: null!,
+      username: this.addEditUserForm.controls.username.value,
+      email: this.addEditUserForm.controls.email.value,
+      firstName: this.addEditUserForm.controls.firstName.value,
+      lastName: this.addEditUserForm.controls.lastName.value,
+    };
+
+    if (this.user.id) {
+      req.id = this.id;
+      this.userService.updateUser(req).subscribe();
+    } else {
+      this.userService.createUser(req).subscribe();
+    }
+
+    this.dialogRef.close(true);
+  }
+
+  onClose() {
+    this.dialogRef.close(true);
+  }
 }
 
 export class UserAddEditDialogModel {
-  constructor(public title: string, public action: string, public userData: UserDataModel) {}
+  constructor(
+    public title: string,
+    public action: string,
+    public userData: UserReqModel
+  ) {}
 }

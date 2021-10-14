@@ -16,7 +16,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { VehicleCategoryListComponent } from './components/vehicle-category-list/vehicle-category-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
-import { LoginComponent } from './components/login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
@@ -34,7 +33,11 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UserAddEditDialogComponent } from './components/user-add-edit-dialog/user-add-edit-dialog.component';
-
+import { CoreModule } from './core/core.module';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { PendingApplicationsListComponent } from './components/pending-applications-list/pending-applications-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,6 @@ import { UserAddEditDialogComponent } from './components/user-add-edit-dialog/us
     SideNavComponent,
     FooterComponent,
     VehicleCategoryListComponent,
-    LoginComponent,
     VehicleListComponent,
     ApplicationDialogComponent,
     PageNotFoundComponent,
@@ -52,6 +54,8 @@ import { UserAddEditDialogComponent } from './components/user-add-edit-dialog/us
     ConfirmDialogComponent,
     AdminDashboardComponent,
     UserAddEditDialogComponent,
+    UserListComponent,
+    PendingApplicationsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,10 @@ import { UserAddEditDialogComponent } from './components/user-add-edit-dialog/us
     MatTableModule,
     MatPaginatorModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    CoreModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
