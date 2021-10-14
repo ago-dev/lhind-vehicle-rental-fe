@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
+import { LoginModel } from './core/model/res/login.model';
+import { AuthenticationService } from './core/service/authetication.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,12 @@ import { Router, NavigationStart } from '@angular/router';
 export class AppComponent {
   title = 'LHIND | Vehicle Rental';
   showLayout: boolean = false;
-
-  constructor(private router: Router) {
+  currentUser!:LoginModel;
+  constructor(private router: Router,private authService:AuthenticationService) {
+    this.authService.currentUser.subscribe(u=>this.currentUser=u);
+/*     if(!this.currentUser){
+      this.router.navigate(["/auth"]);
+    } */
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (['/auth/login',

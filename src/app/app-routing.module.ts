@@ -7,13 +7,7 @@ import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.co
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
- // { path: '', component: HomeComponent },
-/*   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'vehicle/list', component: VehicleListComponent },
-  { path: 'application/list', component: ApplicationListComponent },
-  { path: 'admin', component: AdminDashboardComponent },
-  { path: '**', component: PageNotFoundComponent }, */
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () =>
