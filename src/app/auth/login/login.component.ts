@@ -27,14 +27,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     
     this.loginForm = this.formBuilder.group({
-      userName: ["", Validators.required],
+      email: ["", Validators.required],
       password: ["", Validators.required],
     });
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || "/application";
   }
   onSubmit() {
     this.loginReq = {
-      username: this.loginForm.controls.userName.value,
+      username: this.loginForm.controls.email.value,
       password: this.loginForm.controls.password.value,
     };
     if (this.loginForm.invalid) {
