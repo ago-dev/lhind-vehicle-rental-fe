@@ -13,7 +13,10 @@ export class AppComponent {
   constructor(private router: Router) {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (['/auth/**', '/admin'].includes(event['url'])) {
+        if (['/auth/login',
+        '/auth/change-password',
+        '/auth/forget-password',
+         '/admin'].includes(event['url'])) {
           this.showLayout = false;
         } else {
           this.showLayout = true;

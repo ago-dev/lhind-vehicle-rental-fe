@@ -15,7 +15,7 @@ import { ChangePasswordReqModel } from "../model/req/change-password-req.model";
 
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
-  private readonly URL: string = environment.baseURL + "user/login";
+  private readonly URL: string = "http://localhost:8080/login";
   private readonly CURRENT_USER = "currentUser";
   loginModel!:LoginModel;
   user!:LoginResponse;
@@ -63,11 +63,12 @@ loginReq:LoginRequest
     localStorage.removeItem(this.CURRENT_USER);
     this.currentUserSubject.next(this.loginModel);
     this.router.navigate([`/auth/login`]);
-
   }
+
   forgetPassword(email:string):Observable<void>  {
     return this.httpClient.post<void>(`${this.URL}`, email);
   }
+  
   changePassword(changePasswordReq:ChangePasswordReqModel):Observable<void>  {
     return this.httpClient.post<void>(`${this.URL}`, changePasswordReq);
   }
