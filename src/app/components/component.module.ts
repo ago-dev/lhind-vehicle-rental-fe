@@ -40,8 +40,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
-   { path: '', redirectTo: '/', pathMatch: 'full' },
-   { path: '', component: HomeComponent },
+   { path: '', redirectTo: 'home', pathMatch: 'full' },
+   { path: 'home', component: HomeComponent },
   { path: 'vehicle/list', component: VehicleListComponent },
   { path: 'application/list', component: ApplicationListComponent },
   { path: 'admin', component: AdminDashboardComponent },

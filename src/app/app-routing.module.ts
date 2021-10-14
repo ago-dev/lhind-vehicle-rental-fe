@@ -7,7 +7,7 @@ import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.co
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
  // { path: '', component: HomeComponent },
 /*   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'vehicle/list', component: VehicleListComponent },
@@ -20,7 +20,7 @@ const routes: Routes = [
       import('../app/auth/auth.module').then((module) => module.AuthModule),
   },
   {
-    path: '',
+    path: 'home',
     loadChildren: () =>
       import('../app/components/component.module').then((module) => module.ComponentModule),
   },

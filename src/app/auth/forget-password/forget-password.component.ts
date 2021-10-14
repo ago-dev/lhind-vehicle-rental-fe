@@ -23,7 +23,7 @@ export class ForgetPasswordComponent implements OnInit {
   }
   ngOnInit(): void {
     this.forgetPasswordForm = this.formBuilder.group({
-      email: ["", Validators.required]
+      email: ["",  [Validators.required,Validators.email]]
         });
     this.returnUrl =  "/change-password";
   }
