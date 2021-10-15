@@ -38,18 +38,18 @@ export class ChangePasswordComponent implements OnInit {
     if (this.changePasswordForm.invalid) {
       return;
     }
-
+    console.log(this.changePasswordReq)
     this.authenticationService
       .changePassword(this.changePasswordReq)
       .subscribe(
-        (data) => {
-          this.authenticationService.logout();
-          this.router.navigate([this.returnUrl]);
+        () => {
         },
         (error) => {
           this.changePasswordForm.reset();
           this.error = "Something went wrong!";
         }
       );
+
+      this.router.navigate(["/auth/login"]);
   }
 }

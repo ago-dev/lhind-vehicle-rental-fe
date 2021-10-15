@@ -1,9 +1,9 @@
-import { ApplicationRequest } from "./application-request.model";
 import { PageSortModel } from "./page-sort.model";
 import { PageableModel } from "./pageable.model";
+import { ApplicationRes } from './application-res.model';
 
 export interface ApplicationRequestListModel {
-    content: ApplicationRequest[];
+    content: ApplicationRes[];
     pageable: PageableModel;
     last: boolean;
     totalElements: number;

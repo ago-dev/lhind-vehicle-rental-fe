@@ -11,18 +11,25 @@ import { AuthenticationService } from './core/service/authetication.service';
 export class AppComponent {
   title = 'LHIND | Vehicle Rental';
   showLayout: boolean = false;
-  currentUser!:LoginModel;
-  constructor(private router: Router,private authService:AuthenticationService) {
-    this.authService.currentUser.subscribe(u=>this.currentUser=u);
-/*     if(!this.currentUser){
-      this.router.navigate(["/auth"]);
-    } */
+  currentUser!: LoginModel;
+  constructor(
+    private router: Router,
+    private authService: AuthenticationService
+  ) {
+    this.authService.currentUser.subscribe((u) => (this.currentUser = u));
+    if (!this.currentUser) {
+      this.router.navigate(['/auth']);
+    }
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (['/auth/login',
-        '/auth/change-password',
-        '/auth/forget-password',
-         '/admin'].includes(event['url'])) {
+        if (
+          [
+            '/auth/login',
+            '/auth/change-password',
+            '/auth/forget-password',
+            '/home/admin',
+          ].includes(event['url'])
+        ) {
           this.showLayout = false;
         } else {
           this.showLayout = true;

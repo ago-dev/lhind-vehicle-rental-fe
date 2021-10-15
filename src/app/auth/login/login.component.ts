@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   error = "";
   loginReq!: LoginRequest;
   returnUrl!:string;
-  constructor(    private formBuilder: FormBuilder,
+
+  constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService

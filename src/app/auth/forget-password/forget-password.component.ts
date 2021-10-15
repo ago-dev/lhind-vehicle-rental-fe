@@ -37,7 +37,8 @@ export class ForgetPasswordComponent implements OnInit {
       .forgetPassword(this.email)
       .subscribe(
         (data) => {
-          this.router.navigate([this.returnUrl]);
+          console.log(data);
+          this.router.navigate(["/auth/change-password"]);
         },
         (error) => {
           this.forgetPasswordForm.reset();

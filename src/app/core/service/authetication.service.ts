@@ -12,10 +12,9 @@ import { LoginResponse } from "../model/res/login-response.model";
 import { LoginModel } from "../model/res/login.model";
 import { ChangePasswordReqModel } from "../model/req/change-password-req.model";
 
-
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
-  private readonly URL: string = "http://localhost:8080/login";
+  private readonly URL: string = "http://localhost:8080/";
   private readonly CURRENT_USER = "currentUser";
   loginModel!:LoginModel;
   user!:LoginResponse;
@@ -42,7 +41,7 @@ login(
 loginReq:LoginRequest
   ):Observable<HttpResponse<LoginResponse>> {
     return this.httpClient
-      .post<LoginResponse>(this.URL,loginReq,{ observe: 'response' })
+      .post<LoginResponse>(this.URL + "login",loginReq,{ observe: 'response' })
       .pipe(
         map((user) => {
           if (user && user.headers.get("Authorization")) {
@@ -66,10 +65,11 @@ loginReq:LoginRequest
   }
 
   forgetPassword(email:string):Observable<void>  {
-    return this.httpClient.post<void>(`${this.URL}`, email);
+    console.log(email);
+    return this.httpClient.post<void>(`${this.URL}api/user/request-reset-password`, {email});
   }
   
   changePassword(changePasswordReq:ChangePasswordReqModel):Observable<void>  {
-    return this.httpClient.post<void>(`${this.URL}`, changePasswordReq);
+    return this.httpClient.post<void>(`${this.URL}api/user/change-password`, changePasswordReq);
   }
 }

@@ -1,5 +1,7 @@
-<h1><mat-icon>schedule</mat-icon> Rent a vehicle</h1>
-
+<h1>
+  <mat-icon>schedule</mat-icon> Rent a vehicle
+</h1>
+<form [formGroup]="applicationForm">
   <mat-form-field appearance="fill">
     <mat-label>Select Vehicle</mat-label>
     <mat-select [formControl]="vehicleControl">
@@ -16,8 +18,8 @@
   <mat-form-field appearance="fill">
     <mat-label>Enter a date range</mat-label>
     <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Start date">
-      <input matEndDate placeholder="End date">
+      <input formControlName="fromDate" matStartDate placeholder="Start date">
+      <input formControlName="toDate" matEndDate placeholder="End date">
     </mat-date-range-input>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
@@ -25,4 +27,5 @@
 
   <p class="price">*May your journey be free from stress and bring you home safely</p>
 
-  <button mat-raised-button color="primary">Send Request</button>
+  <button mat-raised-button color="primary" (click)="add()">Send Request</button>
+</form>

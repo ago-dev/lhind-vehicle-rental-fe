@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ApplicationRequest } from 'src/app/core/model/res/application-request.model';
 import { RentApplicationService } from 'src/app/core/service/rent-application.service';
-import { Application } from '../application-list/application-list.component';
+import {ApplicationRes} from 'src/app/core/model/res/application-res.model';
 
 @Component({
   selector: 'app-pending-applications-list',
@@ -10,8 +9,8 @@ import { Application } from '../application-list/application-list.component';
   styleUrls: ['./pending-applications-list.component.scss']
 })
 export class PendingApplicationsListComponent implements OnInit {
-  applicationRequests!: ApplicationRequest[];
-  applicationReqDataSource = new MatTableDataSource<Application>(
+  applicationRequests!: ApplicationRes[];
+  applicationReqDataSource = new MatTableDataSource<ApplicationRes>(
     this.applicationRequests
   );
   
