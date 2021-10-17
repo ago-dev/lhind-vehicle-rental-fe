@@ -31,7 +31,10 @@ export class PendingApplicationsListComponent implements OnInit {
   }
 
   listPendingApplications(pageNo: number, pageSize: number) {
+    console.log('Heyyyy');
+
     this.applicationService.getPendingApplications(pageNo, pageSize).subscribe((c) => {
+      console.log('Pending appl '+c.content);
       this.applicationRequests = c.content;
       this.applicationReqDataSource.data = this.applicationRequests;
     });

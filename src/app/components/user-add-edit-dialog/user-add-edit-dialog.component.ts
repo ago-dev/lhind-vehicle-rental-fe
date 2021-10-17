@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { UserReqModel } from 'src/app/core/model/req/user-req.model';
 import { UserService } from 'src/app/core/service/user.service';
+import { UserResModel } from 'src/app/core/model/res/user-res.model';
 
 @Component({
   selector: 'app-user-add-edit-dialog',
@@ -13,8 +13,7 @@ import { UserService } from 'src/app/core/service/user.service';
 export class UserAddEditDialogComponent implements OnInit {
   title!: string;
   action!: string;
-  id!: number;
-  user!: UserReqModel;
+  user!: UserResModel;
 
   addEditUserForm!: FormGroup;
   firstName!: FormControl;
@@ -25,7 +24,6 @@ export class UserAddEditDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: UserAddEditDialogModel,
     private userService: UserService,
-    private router: Router,
     public dialogRef: MatDialogRef<UserAddEditDialogComponent>
   ) {
     this.title = data.title;
@@ -36,7 +34,6 @@ export class UserAddEditDialogComponent implements OnInit {
     this.lastName = new FormControl(this.user ? this.user.lastName : '');
     this.username = new FormControl(this.user ? this.user.username : '');
     this.email = new FormControl(this.user ? this.user.email : '');
-    this.id = this.user.id;
   }
 
   ngOnInit(): void {
@@ -50,7 +47,6 @@ export class UserAddEditDialogComponent implements OnInit {
 
   addUpdateUser() {
     let req: UserReqModel = {
-      id: null!,
       username: this.addEditUserForm.controls.username.value,
       email: this.addEditUserForm.controls.email.value,
       firstName: this.addEditUserForm.controls.firstName.value,
@@ -58,8 +54,7 @@ export class UserAddEditDialogComponent implements OnInit {
     };
 
     if (this.user.id) {
-      req.id = this.id;
-      this.userService.updateUser(req).subscribe();
+      this.userService.updateUser(this.user.id, req).subscribe();
     } else {
       this.userService.createUser(req).subscribe();
     }
@@ -76,6 +71,6 @@ export class UserAddEditDialogModel {
   constructor(
     public title: string,
     public action: string,
-    public userData: UserReqModel
+    public userData: UserResModel
   ) {}
 }

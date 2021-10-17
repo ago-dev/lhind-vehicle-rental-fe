@@ -27,8 +27,8 @@ export class UserService {
     return this.httpClient.post<UserReqModel>(`${this.URL}`, req);
   }
 
-  updateUser(req: UserReqModel) :Observable<UserReqModel>{
-    return this.httpClient.put<UserReqModel>(`${this.URL}`, req);
+  updateUser(id: number, req: UserReqModel) :Observable<UserReqModel>{
+    return this.httpClient.put<UserReqModel>(`${this.URL}${id}`, req);
   }
 
   deleteUser(id: number) :Observable<void>{

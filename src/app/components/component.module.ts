@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import {
-  MatFormField,
-  MatFormFieldModule,
-} from '@angular/material/form-field';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CoreModule } from '../core/core.module';
 import { HeaderComponent } from '../layout/header/header.component';
@@ -38,18 +35,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from '../auth/interceptor/jwt.interceptor';
 
 const routes: Routes = [
-   { path: '', redirectTo: 'home', pathMatch: 'full' },
-   { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'vehicle/list', component: VehicleListComponent },
   { path: 'application/list', component: ApplicationListComponent },
   { path: 'admin', component: AdminDashboardComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     HomeComponent,
     VehicleCategoryListComponent,
     VehicleListComponent,
@@ -59,7 +58,7 @@ const routes: Routes = [
     AdminDashboardComponent,
     UserAddEditDialogComponent,
     UserListComponent,
-    PendingApplicationsListComponent
+    PendingApplicationsListComponent,
   ],
   imports: [
     CommonModule,
@@ -82,9 +81,9 @@ const routes: Routes = [
     MatMenuModule,
     LayoutModule,
     CoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  exports: [  
+  exports: [
     HomeComponent,
     VehicleCategoryListComponent,
     VehicleListComponent,
@@ -94,7 +93,11 @@ const routes: Routes = [
     AdminDashboardComponent,
     UserAddEditDialogComponent,
     UserListComponent,
-    PendingApplicationsListComponent],
-    providers:[CoreModule]
+    PendingApplicationsListComponent,
+  ],
+  providers: [
+    CoreModule,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
 })
 export class ComponentModule {}

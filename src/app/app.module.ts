@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -26,15 +26,15 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { SideNavComponent } from './layout/side-nav/side-nav.component';
+import { JwtInterceptor } from './auth/interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [
-  AppComponent,
-  FooterComponent,
-  HeaderComponent,
-  PageNotFoundComponent,
-  SideNavComponent
-
+    AppComponent,
+    FooterComponent,
+    HeaderComponent,
+    PageNotFoundComponent,
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,9 +59,11 @@ import { SideNavComponent } from './layout/side-nav/side-nav.component';
     MatTableModule,
     MatPaginatorModule,
     MatMenuModule,
-
   ],
-  providers: [],
+  providers: [
+    CoreModule,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -49,6 +51,6 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
   exports: [LoginComponent,ForgetPasswordComponent,ChangePasswordComponent],
-  providers:[CoreModule]
+  providers:[CoreModule,  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }]
 })
 export class AuthModule {}

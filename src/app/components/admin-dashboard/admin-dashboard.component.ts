@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { Application } from '../application-list/application-list.component';
+import { ApplicationRes } from 'src/app/core/model/res/application-res.model';
 import {
   ConfirmDialogComponent,
   ConfirmDialogModel,

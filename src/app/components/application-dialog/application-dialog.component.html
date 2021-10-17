@@ -4,7 +4,7 @@
 <form [formGroup]="applicationForm">
   <mat-form-field appearance="fill">
     <mat-label>Select Vehicle</mat-label>
-    <mat-select [formControl]="vehicleControl">
+    <mat-select [formControl]="vehicle">
       <mat-option>-- None --</mat-option>
       <mat-optgroup *ngFor="let vehicleCategory of vehicleCategoryList" [label]="vehicleCategory.name">
         <mat-option *ngFor="let vehicleModel of vehicleCategory.vehicleModels" [value]="vehicleModel.id">
@@ -27,5 +27,5 @@
 
   <p class="price">*May your journey be free from stress and bring you home safely</p>
 
-  <button mat-raised-button color="primary" (click)="add()">Send Request</button>
+  <button mat-raised-button color="primary" (click)="addUpdateApplication()">Send Request</button>
 </form>

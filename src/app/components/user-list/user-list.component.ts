@@ -1,8 +1,9 @@
+import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { UserReqModel } from 'src/app/core/model/req/user-req.model';
 import { UserResModel } from 'src/app/core/model/res/user-res.model';
 import { UserService } from 'src/app/core/service/user.service';
 import {
@@ -37,6 +38,7 @@ export class UserListComponent implements OnInit {
   ];
 
   userDataSource = new MatTableDataSource<UserResModel>(this.users);
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private dialogRef: MatDialog,
@@ -46,6 +48,10 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.listUser(1, 5);
+  }
+
+  ngAfterViewInit() {
+    this.userDataSource.paginator = this.paginator;
   }
 
   listUser(pageNo: number, pageSize: number) {
@@ -67,7 +73,7 @@ export class UserListComponent implements OnInit {
   openDialog(type: string, user?: UserResModel) {
     let title = '';
     let action = '';
-    let userData: UserReqModel = {
+    let userData: UserResModel = {
       id: null!,
       firstName: '',
       lastName: '',
